@@ -32,7 +32,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
-         GaneralException exception = new GaneralException(LocalDateTime.now(),ex.getFieldError().getDefaultMessage());
+         GaneralException exception = new GaneralException(LocalDateTime.now(),"Total error are " + ex.getErrorCount() +
+                 "and the first error is "+ex.getFieldError().getDefaultMessage());
         return new ResponseEntity<>(exception , HttpStatus.BAD_REQUEST);
     }
 
