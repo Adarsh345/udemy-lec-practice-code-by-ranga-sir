@@ -37,4 +37,8 @@ public class UserDaoService {
         return user;
 
     }
+
+    public void deleteUserById(int id) {
+        users.removeIf(user -> user.getId().equals(id));
+    }
 }

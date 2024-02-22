@@ -26,4 +26,9 @@ public class UserController {
     public User createUser(@RequestBody User user){
         return userDaoService.createUser(user);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable(value = "id") int id){
+        userDaoService.deleteUserById(id);
+    }
 }
