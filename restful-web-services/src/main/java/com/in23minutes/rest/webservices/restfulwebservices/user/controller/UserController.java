@@ -2,6 +2,7 @@ package com.in23minutes.rest.webservices.restfulwebservices.user.controller;
 
 import com.in23minutes.rest.webservices.restfulwebservices.user.model.User;
 import com.in23minutes.rest.webservices.restfulwebservices.user.model.service.UserDaoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +24,7 @@ public class UserController {
     }
 
     @PostMapping()
-    public User createUser(@RequestBody User user){
+    public User createUser(@Valid  @RequestBody User user){
         return userDaoService.createUser(user);
     }
 
