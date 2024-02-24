@@ -20,4 +20,14 @@ public class PersonController {
     public PersonV2 getPersonV2(){
         return  new PersonV2(new Name( "Adarsh" , "tripathi"));
     }
+
+    @GetMapping(path = "v2",params = "version = 2")
+    public PersonV2 getUsingRequestParamPersonV2(){
+        return  new PersonV2(new Name( "Adarsh" , "tripathi"));
+    }
+
+    @GetMapping(path = "v1",params = "version = 1")
+    public PersonV1 getUsingRequestParamPersonV1(){
+        return new PersonV1("Bob charli");
+    }
 }
